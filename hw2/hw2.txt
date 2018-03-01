@@ -1,0 +1,26 @@
+convert_grammar:
+	The difference that it had in grammar in hw2 is that it is a list of rules 
+	in function format. Thus, I created a helper function that return the list
+	of nonterminal symbol.
+
+parse_prefix:
+	in order to write this parse prefix function, I need a couple helper function. 
+	1. sec_component : basically to access next component of the list
+	2. non_tmatch : doing order matching
+	3. t_match : doing fragmentation 
+
+The algorithm basically like a tree that visited and haven’t visited. 
+For matcher either terminal rule or non terminal rule, it match the list, and once
+it has visited one element, it will check match or not, then continue. 
+After it all visited, then it will return None. Which eventually combine the 
+acceptor and fragmentation at the end.
+
+Weakness:
+- As a spec say, it is really hard to create a perfect parsing. We are just doing a
+naive parsing. Thus, it has a weakness where it really depend on the rules and may
+caused an infinite loop. 
+For example: If the first rule is in the reverse order, it will call expr again again and
+again, which a drawback of this code. 
+
+	
+
